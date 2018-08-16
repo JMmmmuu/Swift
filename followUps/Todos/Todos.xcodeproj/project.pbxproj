@@ -14,6 +14,7 @@
 		564B7F9A21252A83008DF9B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564B7F9821252A83008DF9B5 /* LaunchScreen.storyboard */; };
 		564B7FA221252B02008DF9B5 /* TodosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B7FA121252B02008DF9B5 /* TodosTableViewController.swift */; };
 		564B7FA421252B16008DF9B5 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B7FA321252B16008DF9B5 /* TodoViewController.swift */; };
+		564B7FA621254846008DF9B5 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564B7FA521254846008DF9B5 /* Todo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		564B7F9B21252A83008DF9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		564B7FA121252B02008DF9B5 /* TodosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosTableViewController.swift; sourceTree = "<group>"; };
 		564B7FA321252B16008DF9B5 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		564B7FA521254846008DF9B5 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				564B7F8F21252A7C008DF9B5 /* AppDelegate.swift */,
 				564B7F9121252A7C008DF9B5 /* ViewController.swift */,
 				564B7F9321252A7C008DF9B5 /* Main.storyboard */,
+				564B7FA521254846008DF9B5 /* Todo.swift */,
 				564B7F9621252A83008DF9B5 /* Assets.xcassets */,
 				564B7F9821252A83008DF9B5 /* LaunchScreen.storyboard */,
 				564B7F9B21252A83008DF9B5 /* Info.plist */,
@@ -145,6 +148,7 @@
 				564B7F9221252A7C008DF9B5 /* ViewController.swift in Sources */,
 				564B7F9021252A7C008DF9B5 /* AppDelegate.swift in Sources */,
 				564B7FA221252B02008DF9B5 /* TodosTableViewController.swift in Sources */,
+				564B7FA621254846008DF9B5 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
