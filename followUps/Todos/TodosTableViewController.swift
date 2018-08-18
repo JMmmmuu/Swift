@@ -12,10 +12,8 @@ class TodosTableViewController: UITableViewController {
 
     // MARK:- Properties
     // MARK: Privates
-    /// todo 목록 - dummy data
-    private var todos: [Todo] = [Todo(title: "test1", due: Date(), memo: "memo1", shouldNotify: true, id: "1"),
-                                 Todo(title: "test2", due: Date(), memo: "memo2", shouldNotify: true, id: "2"),
-                                 Todo(title: "test3", due: Date(), memo: "memo3", shouldNotify: true, id: "3")]
+    /// todo 목록
+    private var todos: [Todo] = Todo.all
     
     /// 셀에 표시할 날짜를 포맷하기 위한 Date Formatter
     private let dateFormatter: DateFormatter = {

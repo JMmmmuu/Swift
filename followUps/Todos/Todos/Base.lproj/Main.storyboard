@@ -44,7 +44,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qyf-3U-5Cp" kind="show" id="6b6-jG-ufv"/>
+                                    <segue destination="qyf-3U-5Cp" kind="show" id="XG4-WV-0sw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -56,13 +56,10 @@
                     <navigationItem key="navigationItem" title="Todo" id="rvg-lx-JFH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4D7-Sv-nda">
                             <connections>
-                                <segue destination="hOz-MA-HoD" kind="presentation" id="2Cw-ZL-J99"/>
+                                <segue destination="hOz-MA-HoD" kind="presentation" id="5E0-54-zRN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="qyf-3U-5Cp" kind="presentation" id="5A5-Bg-6q9"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ywK-1R-Pjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,6 +172,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6b6-jG-ufv"/>
+        <segue reference="PI2-mw-Kzu"/>
     </inferredMetricsTieBreakers>
 </document>
