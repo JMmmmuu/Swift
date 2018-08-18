@@ -154,17 +154,39 @@ class TodoViewController: UIViewController {
         }
     }
     
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 텍스트 필드 delegate 설정
+        self.titleField.delegate = self
+        
+        // 이전 화면에서 전달받은 todo가 없다면 새로운 작성화면 설정
+        if self.todo == nil {
+            self.navigationItem.leftBarButtonItem = self.cancelButton
+            self.navigationItem.rightBarButtonItem = self.doneButton
+        } else {
+            self.navigationItem.rightBarButtonItem = self.editButton
+        }
+        
+        // 화면 초기화
+        self.initializeViews()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // 수정 모드라면 텍스트 필드에 바로 입력할 수 있도록 키보드 보여줌
+        if self.mode == Mode.edit {
+            self.titleField.becomeFirstResponder()
+        }
+    }
+/*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    */
 
     /*
     // MARK: - Navigation
@@ -177,3 +199,11 @@ class TodoViewController: UIViewController {
     */
 
 }
+
+/// 텍스트 필드 delegate 메서드 구현
+extension TodoViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.navigationItem.title = textField.text
+    }
+}
+

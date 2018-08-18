@@ -42,7 +42,7 @@ class TodosTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         // 화면이 보일 때마다 todo 목록을 새로고침
-        self.todos = Todo.all
+        // self.todos = Todo.all
         self.tableView.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.automatic)
     }
     
@@ -118,14 +118,23 @@ class TodosTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        guard let todoViewController: TodoViewController = segue.destination as? TodoViewController else {
+            return
+        }
+        
+        guard let cell: UITableViewCell = sender as? UITableViewCell else { return }
+        guard let index: IndexPath = self.tableView.indexPath(for: cell) else { return }
+        
+        guard index.row < todos.count else { return }
+        let todo: Todo = todos[index.row]
+        todoViewController.todo = todo
     }
-    */
-
+    
 }
