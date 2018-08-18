@@ -42,14 +42,8 @@ class TodosTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         // 화면이 보일 때마다 todo 목록을 새로고침
-        // self.todos = Todo.all
+        self.todos = Todo.all
         self.tableView.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.automatic)
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source

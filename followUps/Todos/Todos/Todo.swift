@@ -24,7 +24,10 @@ extension Todo {
     
     /// Todo JSON 파일 위치
     private static var todosPathURL: URL {
-        return try! FileManager.default.url(for: FileManager.SearchPathDirectory.applicationSupportDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("todos.json")
+        return try! FileManager.default.url(for: FileManager.SearchPathDirectory.applicationSupportDirectory,
+                                            in: FileManager.SearchPathDomainMask.userDomainMask,
+                                            appropriateFor: nil,
+                                            create: true).appendingPathComponent("todos.json")
     }
     
     /// JSON 파일로부터 Todo 배열 읽어오기
@@ -57,9 +60,8 @@ extension Todo{
     
     @discardableResult static func remove(id: String) -> Bool {
         
-        guard let index: Int = self.all.index(where: { (todo: Todo) -> Bool in todo.id == id }) else {
-            return false
-        }
+        guard let index: Int = self.all.index(where: { (todo: Todo) -> Bool in todo.id == id })
+            else { return false }
         self.all.remove(at: index)
         return self.saveToJSONFile()
     }
@@ -68,7 +70,7 @@ extension Todo{
     
         if let index = Todo.index(of: self) {
             Todo.all.replaceSubrange(index...index, with: [self])
-    } else {
+        } else {
             Todo.all.append(self)
         }
         
@@ -82,9 +84,8 @@ extension Todo{
     }
     
     private static func index(of target: Todo) -> Int? {
-        guard let index: Int = self.all.index(where: { (todo: Todo) -> Bool in todo.id == target.id }) else {
-            return nil
-        }
+        guard let index: Int = self.all.index(where: { (todo: Todo) -> Bool in todo.id == target.id })
+            else { return nil }
         
         return index
     }

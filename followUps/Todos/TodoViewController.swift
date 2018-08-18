@@ -49,19 +49,25 @@ class TodoViewController: UIViewController {
     
     /// 수정 - 네비게이션 바 버튼
     private var editButton: UIBarButtonItem {
-        let button: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(touchUpEditButton(_:)))
+        let button: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit,
+                                                      target: self,
+                                                      action: #selector(touchUpEditButton(_:)))
         return button
     }
     
     /// 취소 - 네비게이션 바 버튼
     private var cancelButton: UIBarButtonItem {
-        let button: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(touchUpCancelButton(_:)))
+        let button: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel,
+                                                      target: self,
+                                                      action: #selector(touchUpCancelButton(_:)))
         return button
     }
  
     /// 완료 - 네비게이션 바 버튼
     private var doneButton: UIBarButtonItem {
-        let button: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(touchUpDoneButton(_:)))
+        let button: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
+                                                      target: self,
+                                                      action: #selector(touchUpDoneButton(_:)))
         return button
     }
     
@@ -87,10 +93,15 @@ class TodoViewController: UIViewController {
     }
     
     /// 간단한 얼럿을 보여줄 때 코드 중복을 줄이기 위한 메서드
-    private func showSimpleAlert(message: String, cancelTitle: String = "확인", cancelHandler: ((UIAlertAction) -> Void)? = nil) {
+    private func showSimpleAlert(message: String, cancelTitle: String = "확인",
+                                 cancelHandler: ((UIAlertAction) -> Void)? = nil) {
         
-        let alert: UIAlertController = UIAlertController(title: "알림", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let action: UIAlertAction = UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.cancel, handler: cancelHandler)
+        let alert: UIAlertController = UIAlertController(title: "알림",
+                                                         message: message,
+                                                         preferredStyle: UIAlertControllerStyle.alert)
+        let action: UIAlertAction = UIAlertAction(title: cancelTitle,
+                                                  style: UIAlertActionStyle.cancel,
+                                                  handler: cancelHandler)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
@@ -119,14 +130,15 @@ class TodoViewController: UIViewController {
         guard let title: String = self.titleField.text,
             title.isEmpty == false else {
                 self.showSimpleAlert(message: "제목은 꼭 작성해야합니다",
-                                     cancelHandler: { (action: UIAlertAction) in self.titleField.becomeFirstResponder()
+                                     cancelHandler: { (action: UIAlertAction) in
+                                        self.titleField.becomeFirstResponder()
                 })
                 return
         }
     
     
         // 새로운 todo 생성
-            let todo: Todo
+        let todo: Todo
         todo = Todo(title: title,
                     due: self.dueDatePicker.date,
                     memo: self.memoTextView.text,
@@ -181,12 +193,6 @@ class TodoViewController: UIViewController {
             self.titleField.becomeFirstResponder()
         }
     }
-/*
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    */
 
     /*
     // MARK: - Navigation
