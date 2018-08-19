@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TodosTableViewController: UITableViewController {
 
@@ -129,4 +130,29 @@ class TodosTableViewController: UITableViewController {
         todoViewController.todo = todo
     }
     
+}
+
+
+/// User Notification의 delegate 메서드 구현
+extension TodosTableViewController: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let idToShow: String = response.notification.request.identifier
+        
+        guard let todoToShow: Todo = self.todos.filter({ (todo: Todo) -> Bool in
+            return todo.id == idToShow
+        }).first else {
+            return
+        }
+        
+        guard let todoViewController: TodoViewController = self.storyboard?.instantiateViewController(withIdentifier: TodoViewController.storyboardID) as? TodoViewController else { return }
+        
+        todoViewController.todo = todoToShow
+        
+        self.navigationController?.pushViewController(todoViewController, animated: true)
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        completionHandler()
+    }
 }

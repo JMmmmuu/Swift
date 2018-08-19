@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 /// Struct to represent Todo instance
 struct Todo: Codable {
@@ -69,6 +70,7 @@ extension Todo{
     @discardableResult func save(completion: () -> Void) -> Bool {
     
         if let index = Todo.index(of: self) {
+            Todo.removeNotification(todo: self)
             Todo.all.replaceSubrange(index...index, with: [self])
         } else {
             Todo.all.append(self)
@@ -77,6 +79,11 @@ extension Todo{
         let isSuccess: Bool = Todo.saveToJSONFile()
         
         if isSuccess {
+            if self.shouldNotify {
+                Todo.addNotification(todo: self)
+            } else {
+                Todo.removeNotification(todo: self)
+            }
             completion()
         }
         
@@ -88,5 +95,41 @@ extension Todo{
             else { return nil }
         
         return index
+    }
+}
+
+/// Todo의 User Notification 관련 메서드
+extension Todo {
+    private static func addNotification(todo: Todo) {
+        // 공용 UserNotification 객체
+        let center: UNUserNotificationCenter = UNUserNotificationCenter.current()
+        
+        // Notificatino contents 객체 생성
+        let content = UNMutableNotificationContent()
+        content.title = "할일 알람"
+        content.body = todo.title
+        content.sound = UNNotificationSound.default()
+        content.badge = 1
+        
+        // 기한 날짜 생성
+        let dateInfo = Calendar.current.dateComponents([Calendar.Component.year, Calendar.Component.day, Calendar.Component.hour, Calendar.Component.minute], from: todo.due)
+        
+        // Notification 트리거 생성
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
+        
+        // Notification 요청 객체 생성
+        let request = UNNotificationRequest(identifier: todo.id, content: content, trigger: trigger)
+        
+        // Notification 스케쥴 추가
+        center.add(request, withCompletionHandler: { (error : Error?) in
+            if let theError = error {
+                print(theError.localizedDescription)
+            }
+        })
+    }
+    
+    private static func removeNotification(todo: Todo) {
+        let center: UNUserNotificationCenter = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [todo.id])
     }
 }
