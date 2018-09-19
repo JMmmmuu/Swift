@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let allQuestions = QuestionBank()
     var pickedAnswer: Bool = false
     var questionNumber: Int = 0
+    var score: Int = 0
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -22,8 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstQuestion = allQuestions.list[0]
-        questionLabel.text = firstQuestion.questionText
+        nextQuestion()
         
     }
 
@@ -45,6 +45,8 @@ class ViewController: UIViewController {
     
     
     func updateUI() {
+        
+        scoreLabel.text = "\(score)"
       
     }
     
@@ -52,7 +54,8 @@ class ViewController: UIViewController {
     func nextQuestion() {
         
         if questionNumber <= 12 {
-        questionLabel.text = allQuestions.list[questionNumber].questionText
+            questionLabel.text = allQuestions.list[questionNumber].questionText
+            updateUI()
         }
         else {
             let alert = UIAlertController(title: "Awesome", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
@@ -74,6 +77,7 @@ class ViewController: UIViewController {
         
         if pickedAnswer == correctAnswer {
             print("You got it!")
+            score += 1
         }
         else {
             print("Wrong!")
@@ -84,6 +88,7 @@ class ViewController: UIViewController {
     
     func startOver() {
         questionNumber = 0
+        score = 0
         nextQuestion()
     }
     
