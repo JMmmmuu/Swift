@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         
     }
 
-
     @IBAction func answerPressed(_ sender: AnyObject) {
         if sender.tag == 1 {
             pickedAnswer = true
@@ -37,24 +36,18 @@ class ViewController: UIViewController {
         }
         
         checkAnswer()
-        
         questionNumber += 1
         nextQuestion()
         
     }
     
-    
     func updateUI() {
-        
         scoreLabel.text = "Score: \(score)"
         progressLabel.text = "\(questionNumber + 1) / 13"
         progressBar.frame.size.width = (view.frame.size.width / 13) * CGFloat(questionNumber + 1)
-      
     }
     
-
     func nextQuestion() {
-        
         if questionNumber <= 12 {
             questionLabel.text = allQuestions.list[questionNumber].questionText
             updateUI()
@@ -67,14 +60,11 @@ class ViewController: UIViewController {
             })
             
             alert.addAction(restartAction)
-            
             present(alert, animated: true, completion: nil)
         }
     }
     
-    
     func checkAnswer() {
-        
         let correctAnswer = allQuestions.list[questionNumber].answer
         
         if pickedAnswer == correctAnswer {
@@ -89,16 +79,12 @@ class ViewController: UIViewController {
             //print("Wrong!")
             ProgressHUD.showError("Wrong!")
         }
-        
     }
-    
     
     func startOver() {
         questionNumber = 0
         score = 0
         nextQuestion()
     }
-    
-
     
 }
