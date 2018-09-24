@@ -57,9 +57,25 @@ class ViewController: UIViewController {
                 
         // TODO Step 6: Modify the IF-Statement to complete the story
         
-    
+        if sender.tag == 1 {
+            storyTextView.text = story3
+            topButton.setTitle(answer3a, for: .normal)
+            bottomButton.setTitle(answer3b, for: .normal)
+        }
+        else {
+            storyTextView.text = story2
+            topButton.setTitle(answer2a, for: .normal)
+            bottomButton.setTitle(answer2b, for: .normal)
+        }
+        
+        
     }
     
+//    func changeScreen(_storyNumber: Int) {
+//        storyTextView.text = story + _storyNumber
+//
+//
+//    }
 
 
 
