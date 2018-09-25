@@ -34,8 +34,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomButton: UIButton!      // Has TAG = 2
     @IBOutlet weak var storyTextView: UILabel!
     
+    var storyIndex: Int = 1
     // TODO Step 5: Initialise instance variables here
-    
     
     
     
@@ -57,25 +57,55 @@ class ViewController: UIViewController {
                 
         // TODO Step 6: Modify the IF-Statement to complete the story
         
-        if sender.tag == 1 {
-            storyTextView.text = story3
-            topButton.setTitle(answer3a, for: .normal)
-            bottomButton.setTitle(answer3b, for: .normal)
+        switch storyIndex {
+        case 1:
+            if sender.tag == 1 {
+                storyTextView.text = story3
+                topButton.setTitle(answer3a, for: .normal)
+                bottomButton.setTitle(answer3b, for: .normal)
+                storyIndex = 3
+            }
+            else {
+                storyTextView.text = story2
+                topButton.setTitle(answer2a, for: .normal)
+                bottomButton.setTitle(answer2b, for: .normal)
+                storyIndex = 2
+            }
+        case 2:
+            if sender.tag == 1 {
+                storyTextView.text = story3
+                topButton.setTitle(answer3a, for: .normal)
+                bottomButton.setTitle(answer3b, for: .normal)
+                storyIndex = 3
+            }
+            else {
+                storyTextView.text = story4
+                topButton.isHidden = true
+                bottomButton.isHidden = true
+                storyIndex = 4
+            }
+        default:
+            if sender.tag == 1 {
+                storyTextView.text = story6
+                topButton.isHidden = true
+                bottomButton.isHidden = true
+                storyIndex = 6
+            }
+            else {
+                storyTextView.text = story5
+                topButton.isHidden = true
+                bottomButton.isHidden = true
+                storyIndex = 5
+            }
         }
-        else {
-            storyTextView.text = story2
-            topButton.setTitle(answer2a, for: .normal)
-            bottomButton.setTitle(answer2b, for: .normal)
-        }
-        
         
     }
     
-//    func changeScreen(_storyNumber: Int) {
-//        storyTextView.text = story + _storyNumber
-//
-//
-//    }
+    func changeScreen(storyNumber: Int) {
+        storyTextView.text = "story" + String(storyNumber)
+        topButton.setTitle("answer" + String(storyNumber) + "a", for: .normal)
+        bottomButton.setTitle("answer" + String(storyNumber) + "b", for: .normal)
+    }
 
 
 
