@@ -80,34 +80,32 @@ class ViewController: UIViewController {
             }
             else {
                 storyTextView.text = story4
-                topButton.isHidden = true
+                topButton.setTitle("Press to Restart", for: .normal)
                 bottomButton.isHidden = true
                 storyIndex = 4
             }
-        default:
+        case 3:
             if sender.tag == 1 {
                 storyTextView.text = story6
-                topButton.isHidden = true
+                topButton.setTitle("Press to Restart", for: .normal)
                 bottomButton.isHidden = true
                 storyIndex = 6
             }
             else {
                 storyTextView.text = story5
-                topButton.isHidden = true
+                topButton.setTitle("Press to Restart", for: .normal)
                 bottomButton.isHidden = true
                 storyIndex = 5
             }
+        default:
+            storyTextView.text = story1
+            bottomButton.isHidden = false
+            topButton.setTitle(answer1a, for: .normal)
+            bottomButton.setTitle(answer1b, for: .normal)
+            storyIndex = 1
         }
         
     }
-    
-    func changeScreen(storyNumber: Int) {
-        storyTextView.text = "story" + String(storyNumber)
-        topButton.setTitle("answer" + String(storyNumber) + "a", for: .normal)
-        bottomButton.setTitle("answer" + String(storyNumber) + "b", for: .normal)
-    }
-
-
 
 }
 
