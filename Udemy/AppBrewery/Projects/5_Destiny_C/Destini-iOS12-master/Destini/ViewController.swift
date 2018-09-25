@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     let answer1a = "I\'ll hop in. Thanks for the help!"
     let answer1b = "Better ask him if he\'s a murderer first."
     
-    
     let story2 = "He nods slowly, unphased by the question."
     let answer2a = "At least he\'s honest. I\'ll climb in."
     let answer2b = "Wait, I know how to change a tire."
@@ -35,20 +34,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var storyTextView: UILabel!
     
     var storyIndex: Int = 1
-    // TODO Step 5: Initialise instance variables here
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
         topButton.setTitle(answer1a, for: .normal)
         bottomButton.setTitle(answer1b, for: .normal)
-        
     }
-
     
     // User presses one of the buttons
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -104,8 +97,6 @@ class ViewController: UIViewController {
             bottomButton.setTitle(answer1b, for: .normal)
             storyIndex = 1
         }
-        
     }
-
 }
 
