@@ -47,7 +47,6 @@ class ViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
     
         // TODO Step 4: Write an IF-Statement to update the views
-                
         // TODO Step 6: Modify the IF-Statement to complete the story
         
         switch storyIndex {
