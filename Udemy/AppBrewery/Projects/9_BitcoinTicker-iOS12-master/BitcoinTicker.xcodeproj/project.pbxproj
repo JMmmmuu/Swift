@@ -88,7 +88,6 @@
 				B3184831DBEF8FF773660465 /* Pods-BitcoinTicker.debug.xcconfig */,
 				7FB32C847E9CB0A68E77D2C6 /* Pods-BitcoinTicker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -126,6 +125,7 @@
 				TargetAttributes = {
 					63A618241C53C381007AF001 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = UVA6XFQDHS;
 						LastSwiftMigration = 1020;
 					};
 				};
@@ -349,11 +349,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UVA6XFQDHS;
 				INFOPLIST_FILE = BitcoinTicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YourName.BitcoinTicker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JMmmmuu.BitcoinTicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -365,11 +365,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UVA6XFQDHS;
 				INFOPLIST_FILE = BitcoinTicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.YourName.BitcoinTicker;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JMmmmuu.BitcoinTicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
