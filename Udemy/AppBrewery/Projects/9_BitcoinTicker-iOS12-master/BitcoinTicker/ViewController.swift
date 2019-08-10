@@ -67,9 +67,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func updatePriceData(json: JSON) {
         if let passedData = json["ask"].double {
             bitcoinPriceLabel.text = String(passedData)
-            print(json)
+        }
+        else {
+            bitcoinPriceLabel.text = "Price Unavailable"
         }
     }
-
 }
 
