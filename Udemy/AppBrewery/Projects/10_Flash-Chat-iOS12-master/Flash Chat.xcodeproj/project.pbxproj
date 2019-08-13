@@ -149,7 +149,6 @@
 				6DFA778D62B20FA4D85C66E5 /* Pods-Flash Chat.debug.xcconfig */,
 				11E81324E0D4BE591EDFD2A9 /* Pods-Flash Chat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
