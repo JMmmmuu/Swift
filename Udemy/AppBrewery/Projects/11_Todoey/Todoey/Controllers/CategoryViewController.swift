@@ -18,7 +18,7 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         
         let request: NSFetchRequest<Category> = Category.fetchRequest()
-        loadItems(with: request)
+        loadCategories(with: request)
     }
     
 
@@ -33,7 +33,7 @@ class CategoryViewController: UITableViewController {
                 newCategory.name = text
                 self.categories.append(newCategory)
                 
-                self.saveItems()
+                self.saveCategories()
             }
         }
         
@@ -68,8 +68,17 @@ class CategoryViewController: UITableViewController {
         performSegue(withIdentifier: "goToItems", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! TodoListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categories[indexPath.row]
+        }
+        
+    }
+    
     // MARK: - Data Manipulation Methods
-    func saveItems() {
+    func saveCategories() {
         do {
             try context.save()
         } catch {
@@ -79,7 +88,7 @@ class CategoryViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func loadItems(with request: NSFetchRequest<Category>) {
+    func loadCategories(with request: NSFetchRequest<Category>) {
         do {
             categories = try context.fetch(request)
         } catch {
