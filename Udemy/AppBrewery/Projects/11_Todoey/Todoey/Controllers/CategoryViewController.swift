@@ -7,14 +7,12 @@
 //
 
 import UIKit
-//import CoreData
 import RealmSwift
 
-class CategoryViewController: UITableViewController {
-    
-    let realm = try! Realm()
+class CategoryViewController: SwipeTableViewController {
 
     var categories: Results<Category>?
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +20,6 @@ class CategoryViewController: UITableViewController {
         loadCategories()
     }
     
-
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         var textField = UITextField()
@@ -54,10 +51,10 @@ class CategoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         let category = categories?[indexPath.row]
-        
-        cell.textLabel?.text = category?.name ?? "No Categories Add Yet"
+
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        cell.textLabel?.text = category?.name ?? "No Categories Added Yet"
         
         return cell
     }
@@ -94,5 +91,20 @@ class CategoryViewController: UITableViewController {
         categories = realm.objects(Category.self)
 
         tableView.reloadData()
+    }
+    
+    // MARK: - Delete Date From Swipe
+    override func updateModel(at indexPath: IndexPath) {
+        super.updateModel(at: indexPath)
+
+        if let categoryForDeletion = self.categories?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print("Error occured deleting category: \(error)")
+            }
+        }
     }
 }
