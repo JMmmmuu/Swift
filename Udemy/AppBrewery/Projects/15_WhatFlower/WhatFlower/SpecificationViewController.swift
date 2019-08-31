@@ -15,28 +15,44 @@ class SpecificationViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
 
-    var WIKI_URL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles="
+
     var pickedImage: UIImage? = nil
-    var flower: String? = nil
+    var flower: String? = nil {
+        willSet {
+            parameters["titles"] = newValue
+        }
+    }
+    
+    let WIKI_URL = "https://en.wikipedia.org/w/api.php"
+    var parameters: [String : String] = [
+        "format" : "json",
+        "action" : "query",
+        "prop" : "extracts",
+        "exintro" : "",
+        "explaintext" : "",
+        "indexpageids" : "",
+        "redirects" : "1", ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let img = pickedImage {
             imageView.image = img
-            WIKI_URL += flower!.replacingOccurrences(of: " ", with: "")
+            getFlowerInfo(withURL: WIKI_URL, parameters)
         }
-        
-        getFlowerInfo()
     }
     
+    var pageID: Int = 0
     
-    func getFlowerInfo() {
-        print("HIHI")
-        Alamofire.request(WIKI_URL, method: .get).responseJSON {
+    func getFlowerInfo(withURL url: String, _ params: [String : String]) {
+        print(url, params)
+        Alamofire.request(url, method: .get, parameters: params).responseJSON {
             response in
             if response.result.isSuccess {
-                print(response.result.value!)
+                if let val = response.result.value {
+                    print(val)
+                    // pageID = Int(val["query"]["pages"][0])
+                }
             } else {
                 print("Failed")
             }
