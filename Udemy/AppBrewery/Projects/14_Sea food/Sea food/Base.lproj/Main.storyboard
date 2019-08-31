@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Hotdog!-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sea_food" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kwl-f9-3kJ">
+                    <navigationItem key="navigationItem" title="Hotdog!" id="Kwl-f9-3kJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="b8N-Wf-iXi">
                             <connections>
                                 <action selector="cameraTapped:" destination="BYZ-38-t0r" id="m5F-q4-Ki5"/>
