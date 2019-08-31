@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		53E86A33231A4CA000D21BB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53E86A32231A4CA000D21BB7 /* Assets.xcassets */; };
 		53E86A36231A4CA000D21BB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53E86A34231A4CA000D21BB7 /* LaunchScreen.storyboard */; };
 		53E86A3E231A4CB400D21BB7 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 53E86A3D231A4CB400D21BB7 /* FlowerClassifier.mlmodel */; };
+		53E86A44231A580000D21BB7 /* SpecificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E86A43231A580000D21BB7 /* SpecificationViewController.swift */; };
 		8DEA6F808926C39BD44B1799 /* Pods_WhatFlower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA876A49C53F4AB6EE7005E /* Pods_WhatFlower.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		53E86A35231A4CA000D21BB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53E86A37231A4CA000D21BB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53E86A3D231A4CB400D21BB7 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = FlowerClassifier.mlmodel; path = "../../../excluded/Flower Classifier/FlowerClassifier.mlmodel"; sourceTree = "<group>"; };
+		53E86A43231A580000D21BB7 /* SpecificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpecificationViewController.swift; path = WhatFlower/SpecificationViewController.swift; sourceTree = "<group>"; };
 		CBA876A49C53F4AB6EE7005E /* Pods_WhatFlower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatFlower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDB345CC681180313EF1755 /* Pods-WhatFlower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatFlower.debug.xcconfig"; path = "Target Support Files/Pods-WhatFlower/Pods-WhatFlower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,14 +66,33 @@
 			isa = PBXGroup;
 			children = (
 				53E86A2B231A4C9F00D21BB7 /* AppDelegate.swift */,
-				53E86A2D231A4C9F00D21BB7 /* ViewController.swift */,
-				53E86A2F231A4C9F00D21BB7 /* Main.storyboard */,
+				53E86A40231A574600D21BB7 /* Controller */,
+				53E86A3F231A573900D21BB7 /* View */,
 				53E86A32231A4CA000D21BB7 /* Assets.xcassets */,
 				53E86A34231A4CA000D21BB7 /* LaunchScreen.storyboard */,
 				53E86A37231A4CA000D21BB7 /* Info.plist */,
 				53E86A3D231A4CB400D21BB7 /* FlowerClassifier.mlmodel */,
 			);
 			path = WhatFlower;
+			sourceTree = "<group>";
+		};
+		53E86A3F231A573900D21BB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53E86A2F231A4C9F00D21BB7 /* Main.storyboard */,
+			);
+			name = View;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		53E86A40231A574600D21BB7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				53E86A2D231A4C9F00D21BB7 /* ViewController.swift */,
+				53E86A43231A580000D21BB7 /* SpecificationViewController.swift */,
+			);
+			name = Controller;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		575900CC1BAC782C98BF0F79 /* Frameworks */ = {
@@ -88,7 +109,6 @@
 				DCDB345CC681180313EF1755 /* Pods-WhatFlower.debug.xcconfig */,
 				37B32BFE3DCD24F68EE52444 /* Pods-WhatFlower.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E86A44231A580000D21BB7 /* SpecificationViewController.swift in Sources */,
 				53E86A3E231A4CB400D21BB7 /* FlowerClassifier.mlmodel in Sources */,
 				53E86A2E231A4C9F00D21BB7 /* ViewController.swift in Sources */,
 				53E86A2C231A4C9F00D21BB7 /* AppDelegate.swift in Sources */,

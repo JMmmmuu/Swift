@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var imageView: UIImageView!
     let imagePicker = UIImagePickerController()
+    @IBOutlet weak var seeMoreButton: UIButton!
+    var pickedImage: UIImage? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imageView.image = userPickedImage
+            pickedImage = userPickedImage
 
             guard let convertedCIImage = CIImage(image: userPickedImage) else {
                 fatalError("Could not convert UIImage into CIImage")
@@ -35,6 +38,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         imagePicker.dismiss(animated: true, completion: nil)
+
+        
+        
     }
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
@@ -59,5 +65,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    
+    @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSpecification", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSpecification" {
+            let destinationVC = segue.destination as! SpecificationViewController
+            destinationVC.pickedImage = pickedImage
+            destinationVC.flower = self.navigationItem.title
+        }
+    }
 }
 
