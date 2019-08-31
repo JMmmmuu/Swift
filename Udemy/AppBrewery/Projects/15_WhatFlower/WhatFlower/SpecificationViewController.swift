@@ -42,23 +42,23 @@ class SpecificationViewController: UIViewController, UINavigationControllerDeleg
         }
     }
     
-    var pageID: Int = 0
     
     func getFlowerInfo(withURL url: String, _ params: [String : String]) {
         print(url, params)
         Alamofire.request(url, method: .get, parameters: params).responseJSON {
             response in
             if response.result.isSuccess {
-                if let val = response.result.value {
-                    print(val)
-                    // pageID = Int(val["query"]["pages"][0])
+                
+                let infoJSON = JSON(response.result.value!)
+                guard let pageID = infoJSON["query"]["pageids"][0].string else {
+                    fatalError()
                 }
+                print(infoJSON["query"]["pages"][pageID]["extract"])
+                self.textView.text = infoJSON["query"]["pages"][pageID]["extract"].string
+
             } else {
                 print("Failed")
             }
         }
-        
-        
     }
-
 }
