@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ddc-QD-tiB">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhatFlower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFC-r0-3x8">
-                                <rect key="frame" x="0.0" y="88" width="414" height="693"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LFC-r0-3x8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUl-If-0gS">
-                                <rect key="frame" x="0.0" y="789" width="414" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUl-If-0gS">
+                                <rect key="frame" x="16" y="587" width="343" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="See More"/>
                                 <connections>
@@ -33,13 +33,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AUl-If-0gS" secondAttribute="trailing" id="HLq-GO-ZlU"/>
-                            <constraint firstItem="LFC-r0-3x8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KBi-Ua-jyq"/>
-                            <constraint firstItem="AUl-If-0gS" firstAttribute="top" secondItem="LFC-r0-3x8" secondAttribute="bottom" constant="8" id="SMX-KR-Ofo"/>
-                            <constraint firstItem="LFC-r0-3x8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bMP-GE-wjm"/>
-                            <constraint firstItem="AUl-If-0gS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ezF-6e-tta"/>
-                            <constraint firstItem="AUl-If-0gS" firstAttribute="top" secondItem="LFC-r0-3x8" secondAttribute="bottom" id="oBM-38-Cwk"/>
-                            <constraint firstItem="LFC-r0-3x8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y1p-Xe-g5d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AUl-If-0gS" secondAttribute="trailing" id="5fL-XX-o0B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LFC-r0-3x8" secondAttribute="bottom" constant="80" id="5o1-Vf-xTj"/>
+                            <constraint firstItem="LFC-r0-3x8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6pK-mj-cgf"/>
+                            <constraint firstItem="LFC-r0-3x8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9R1-SB-Awq"/>
+                            <constraint firstItem="AUl-If-0gS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IYV-at-MsY"/>
+                            <constraint firstItem="LFC-r0-3x8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SWK-al-kk8"/>
+                            <constraint firstItem="AUl-If-0gS" firstAttribute="top" secondItem="LFC-r0-3x8" secondAttribute="bottom" id="TS3-4W-c6E"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="AUl-If-0gS" secondAttribute="bottom" id="ueL-Gs-5aT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -57,24 +58,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1047.2" y="137.18140929535232"/>
         </scene>
         <!--Specification View Controller-->
         <scene sceneID="dk7-IJ-fiB">
             <objects>
                 <viewController id="OGi-cu-him" customClass="SpecificationViewController" customModule="WhatFlower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gra-Jm-xxS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gd0-rh-23B">
-                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gd0-rh-23B" secondAttribute="height" multiplier="1:1" id="ceV-bg-6EA"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vwg-Te-w2M">
-                                <rect key="frame" x="0.0" y="502" width="414" height="360"/>
+                                <rect key="frame" x="0.0" y="439" width="375" height="228"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -107,7 +108,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ddc-QD-tiB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="upN-VX-qP7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
