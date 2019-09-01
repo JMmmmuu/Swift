@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SDWebImage
 
 class SpecificationViewController: UIViewController, UINavigationControllerDelegate {
 
@@ -27,17 +28,19 @@ class SpecificationViewController: UIViewController, UINavigationControllerDeleg
     var parameters: [String : String] = [
         "format" : "json",
         "action" : "query",
-        "prop" : "extracts",
+        "prop" : "extracts|pageimages",
         "exintro" : "",
         "explaintext" : "",
         "indexpageids" : "",
-        "redirects" : "1", ]
+        "redirects" : "1",
+        "pithumbsize" : "500"
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let img = pickedImage {
-            imageView.image = img
+            //imageView.image = img
             getFlowerInfo(withURL: WIKI_URL, parameters)
         }
     }
@@ -54,6 +57,9 @@ class SpecificationViewController: UIViewController, UINavigationControllerDeleg
                     fatalError()
                 }
                 print(infoJSON["query"]["pages"][pageID]["extract"])
+                let flowerImageURL = infoJSON["query"]["pages"][pageID]["thumbnail"]["source"].stringValue
+                
+                self.imageView.sd_setImage(with: URL(string: flowerImageURL))
                 self.textView.text = infoJSON["query"]["pages"][pageID]["extract"].string
                 self.navigationItem.title = self.flower
 
