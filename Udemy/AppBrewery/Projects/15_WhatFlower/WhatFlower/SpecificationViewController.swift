@@ -55,6 +55,7 @@ class SpecificationViewController: UIViewController, UINavigationControllerDeleg
                 }
                 print(infoJSON["query"]["pages"][pageID]["extract"])
                 self.textView.text = infoJSON["query"]["pages"][pageID]["extract"].string
+                self.navigationItem.title = self.flower
 
             } else {
                 print("Failed")
